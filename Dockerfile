@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM arm64v8/alpine:edge
 
 # Install the packages we need. Avahi will be included
 RUN echo "http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories &&\
@@ -23,10 +23,6 @@ RUN echo "http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositorie
 
 # This will use port 631
 EXPOSE 631
-
-# We want a mount for these
-VOLUME /config
-VOLUME /services
 
 # Add scripts
 ADD root /
