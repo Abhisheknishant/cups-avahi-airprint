@@ -10,7 +10,7 @@ before_install:
 - docker build --no-cache -t ${REPO} .
 
 script:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$PASSWORD" | docker login -u "$USERNAME" --password-stdin
   - docker tag ${REPO} "${TRAVIS_REPO_SLUG}:$(date +%Y-%m-%d)"
   - docker push ${REPO}:latest
   - docker push "${REPO}:$(date +%Y-%m-%d)"
