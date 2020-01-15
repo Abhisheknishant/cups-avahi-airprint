@@ -11,6 +11,4 @@ before_install:
 
 script:
   - echo "$PASSWORD" | docker login -u "$USERNAME" --password-stdin
-  - docker tag ${REPO} "${TRAVIS_REPO_SLUG}:$(date +%Y-%m-%d)"
   - docker push ${REPO}:latest
-  - docker push "${REPO}:$(date +%Y-%m-%d)"
